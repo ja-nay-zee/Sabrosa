@@ -1,3 +1,42 @@
 #title{
     text-align: center;
 }
+
+.formPublishRecipe {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background-color: rgba(150, 89, 10, 0.5);
+  }
+  
+  .formPublishRecipe form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .formPublishRecipe input {
+    margin-right: 2rem;
+    flex: 1;
+  }
+  
+  .formPublishRecipe button {
+    width: 150px;
+  }
+
+
+  /* for the favorite button */
+  /* .h_container{
+    background-color: #cac7c7;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    display: inline-block;
+    width:35px;
+    height:35px;
+    text-align:center;
+    line-height:45px;
+}
+#heart{
+    font-size: 25px;
+}
+#heart:hover{
+    color:red;
+} */
