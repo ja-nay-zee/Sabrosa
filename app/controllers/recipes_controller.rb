@@ -4,21 +4,21 @@ class RecipesController < ApplicationController
         render json: @recipes, status: 200
     end
 
-    #(GET) INDEX TO APPEAR ON POSTMAN
+    #(GET) INDEX APPEARS ON POSTMAN
 
-    # def create
-    #     @recipe = Recipe.create(recipes_params)
-    #     render json: @recipe, status: 200
-    # end
+    def create
+        @recipe = Recipe.create(recipes_params)
+        render json: @recipe, status: 200
+    end
 
-    #CREATE WORKS
+    #CREATE WORKS (YOU HAVE TO ADD THE ID TO POST)
 
-    # def destroy
-    #     @recipe = Recipe.find(params[:id])
-    #     @recipe.destroy
-    # end
+    def destroy
+        @recipe = Recipe.find(params[:id])
+        @recipe.destroy
+    end
 
-    #DELETE WORKS
+    #DELETE WORKS => TO TEST YOU NEED TO DO .../recipes/(id) AND IT WILL DELETE. THEN CHECK INDEX
 
     # def create
     #     recipe = Recipe.new(recipes_params)

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :steps
   resources :recipes
+  # resources :recipes, only: [:index, :create, :update, :destroy]
   resources :users
 
   # get "/hello", to: "application#hello_world"
