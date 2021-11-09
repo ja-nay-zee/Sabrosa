@@ -1,17 +1,23 @@
 import React from "react";
 import "./BookCard.css"
 
-function BookCard({ cbrecipe }){
+function BookCard({ cbrecipe, onDeleteRecipe }){
     // console.log(cbrecipe); WORKS
-    const { name, dish_description, image_url } = cbrecipe;
+    const { id, name, dish_description, image_url } = cbrecipe;
 
     function DeleteClick(){
-        console.log("Woohoo! You clicked the delete button");
+        // console.log(id); WORKS
+        fetch(`/recipes/${id}`, {
+          method: "DELETE",
+        });
+        onDeleteRecipe(id);
     }
 
     function EditClick(){
         console.log("Yay! You clicked the edit button");
     }
+
+
     return(
         <div>
         <li className="card">
