@@ -25,11 +25,6 @@ function handleDeleteRecipe(id){
     setCbRecipes(updatedRecipesArray);
 }
 
-// function handleAddRecipe(newRecipe){
-//     const updatedRecipesArray = [...cbrecipes, newRecipe];
-//     setCbRecipes(updatedRecipesArray);
-// }
-
 
 console.log(cbrecipes);
     return(

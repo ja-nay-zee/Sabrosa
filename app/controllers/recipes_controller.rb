@@ -32,7 +32,6 @@ class RecipesController < ApplicationController
     #SHOW APPEARS ON POSTMAN
 
     def update
-        # byebug
         recipe = Recipe.find_by(id: params[:id])
         if recipe
           recipe.update(recipes_params)
@@ -44,17 +43,17 @@ class RecipesController < ApplicationController
 
     #PATCH APPEARS ON POSTMAN (YOU HAVE TO DO /{id}, GET IT, THEN USE PATCH (JSON, THEN CHECK INDEX AGAIN TO SEE CHANGES)
 
-    # def create
-    #     recipe = Recipe.new(recipes_params)
-    #     recipes_params[:steps].each do |step_data|
-    #         step = recipe.steps.build(step_data)
-    #         if step.save
-    #             render json: recipe, status: 200
-    #         else
-    #             render json: { error: "Step not found" }, status: :not_found
-    #         end
-    #     end
-    # end
+    def create
+        recipe = Recipe.new(recipes_params)
+        recipes_params[:step_instruction].each do |step_data|
+            step = recipe.step_instruction.build(step_data)
+            if step.save
+                render json: recipe, status: 200
+            else
+                render json: { error: "Step not found" }, status: :not_found
+            end
+        end
+    end
 
     # FOR ITERATING EACH STEP ^ = HAVE TO TEST ON FRONT-END
 

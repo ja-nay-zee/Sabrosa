@@ -6,12 +6,11 @@ function Publish({ onAddRecipe }){
     const [name, setName] = useState("");
     const [dish_description, setDishDescription] = useState("");
     const [image_url, setImageURL] = useState("");
+    const [step_instruction, setStepInstruction] = useState([{step_instruction: ""}])
 
-    // console.log({ name, description, image }); WORKS!
     
     function handlePublishRecipe(e){
         e.preventDefault();
-        //make the POST
         fetch("/recipes", {
             method: "POST",
             headers: {
@@ -23,8 +22,27 @@ function Publish({ onAddRecipe }){
                 image_url: image_url
             })
         })
-            .then(r => r.json())
+            .then(r => r.json());
     }
+
+
+    function handleAddStep(e, index){
+        const { name, value } = e.target;
+        const step = [...step_instruction];
+        step[index][name] = value;
+        setStepInstruction(step);
+    }
+
+    function handleAddStepButton(){
+        setStepInstruction([...step_instruction, { step_instruction: ""}])
+    }
+
+    function handleCancelStepButton(index){
+        const list = [...step_instruction];
+        list.splice(index, 1);
+        setStepInstruction(list);
+    }
+
 
     return(
         <div className="formPublishRecipe">
@@ -51,6 +69,47 @@ function Publish({ onAddRecipe }){
                     value={image_url} 
                     onChange={(e) => setImageURL(e.target.value)}
                 />
+            {step_instruction.map((item,i) => {
+                return(
+                    <div key={i} id="addingstepform">
+                        <input 
+                            type="text" 
+                            name="step_instruction" 
+                            placeholder="Step Instruction" 
+                            value={item.step_instruction} 
+                            onChange={e => handleAddStep(e, i)}
+                        />
+                        {step_instruction.length -1 === i && <input 
+                            id="addStepButton"
+                            type="button" 
+                            value="+"
+                            onClick={handleAddStepButton}
+                        />}
+                        {step_instruction.length !== 1 && <input 
+                            id="cancelStepButton"
+                            type="button" 
+                            value="Cancel"
+                            onClick={handleCancelStepButton}
+                        />}
+
+                    </div>    
+                )
+            })}
+                {/* <input 
+                    type="text" 
+                    name="step_instruction" 
+                    placeholder="Step Instruction" 
+                    value={step_instruction.step_instruction} 
+                    onChange={handleAddStep}
+                />
+                <input 
+                    id="addButton"
+                    type="button" 
+                    name="Add" 
+                    placeholder="Add" 
+                    // value={image_url} 
+                    // onChange={(e) => setImageURL(e.target.value)}
+                /> */}
                 <button type="submit" onClick={() => alert("Yum! Your recipe was added to Your Cookbook!")}>Submit New Recipe</button>
             </form>
         </div>
@@ -59,6 +118,3 @@ function Publish({ onAddRecipe }){
 
 export default Publish;
 
-{/* <div class="h_container">
-<i id="heart" class="far fa-heart"></i>
-</div> */}

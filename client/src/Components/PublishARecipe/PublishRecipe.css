@@ -9,13 +9,13 @@
   }
   
   .formPublishRecipe form {
-    display: flex;
+    /* display:table-column; */
     justify-content: center;
   }
   
   .formPublishRecipe input {
-    margin-right: 2rem;
-    flex: 1;
+    /* margin-right: 2rem;
+    flex: 1; */
   }
   
   .formPublishRecipe button {
@@ -40,3 +40,36 @@
 #heart:hover{
     color:red;
 } */
+
+#addStepButton{
+    color: white;
+    border-style: hidden;
+    background-color: #754728;
+    border-radius: 15px;
+    box-shadow: 0 4px rgb(145, 143, 143);
+    z-index: 6;
+    width: 40px;    
+}
+
+#addStepButton:hover{
+    background-color: #fdc48e;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#cancelStepButton{
+  color: white;
+  border-style: hidden;
+  background-color: #754728;
+  border-radius: 15px;
+  box-shadow: 0 4px rgb(145, 143, 143);
+  z-index: 6;
+  width: 85px;  
+}
+
+#cancelStepButton:hover{
+  background-color: #fdc48e;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
