@@ -20,6 +20,30 @@ class RecipesController < ApplicationController
 
     #DELETE WORKS => TO TEST YOU NEED TO DO .../recipes/(id) AND IT WILL DELETE. THEN CHECK INDEX
 
+    def show
+        recipe = Recipe.find_by(id: params[:id])
+        if recipe
+          render json: recipe
+        else
+          render json: { error: "Recipe not found" }, status: :not_found
+        end
+    end
+
+    #SHOW APPEARS ON POSTMAN
+
+    def update
+        # byebug
+        recipe = Recipe.find_by(id: params[:id])
+        if recipe
+          recipe.update(recipes_params)
+          render json: recipe
+        else
+          render json: { error: "Recipe not found" }, status: :not_found
+        end
+    end
+
+    #PATCH APPEARS ON POSTMAN (YOU HAVE TO DO /{id}, GET IT, THEN USE PATCH (JSON, THEN CHECK INDEX AGAIN TO SEE CHANGES)
+
     # def create
     #     recipe = Recipe.new(recipes_params)
     #     recipes_params[:steps].each do |step_data|
@@ -52,6 +76,6 @@ class RecipesController < ApplicationController
     private
 
     def recipes_params
-        params.permit(:name, :dish_description, :image_url, :user_id)
+        params.permit(:id, :name, :dish_description, :image_url, :user_id)
     end
 end

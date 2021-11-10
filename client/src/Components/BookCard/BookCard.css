@@ -36,3 +36,12 @@
       width: calc(20% - 2rem);
     }
   }
+
+  #updateform{
+    background-color: c3c8fd;
+    border: 6px solid #9e6316;
+    /* margin-top: -28%; */
+    /* margin-left: 60%; */
+    height: 200px;
+    width: 1000px;
+}

@@ -39,14 +39,14 @@ function Publish({ onAddRecipe }){
                 />
                 <input 
                     type="text" 
-                    name="description" 
+                    name="dish_description" 
                     placeholder="Description of Dish" 
                     value={dish_description} 
                     onChange={(e) => setDishDescription(e.target.value)}
                 />
                 <input 
                     type="text" 
-                    name="image" 
+                    name="image_url" 
                     placeholder="Image URL" 
                     value={image_url} 
                     onChange={(e) => setImageURL(e.target.value)}

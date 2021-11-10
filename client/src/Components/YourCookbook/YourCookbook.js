@@ -6,6 +6,7 @@ import Search from "../Search/Search";
 function Cookbook(){
 const [cbrecipes, setCbRecipes] = useState([])
 const [searchTerm, setSearchTerm] = useState("")
+const [toggleEdit, setToggleEdit] = useState(true)
 
 useEffect(() => {
     fetch("/recipes")
@@ -13,7 +14,7 @@ useEffect(() => {
     .then((recipesArray) => {
         setCbRecipes(recipesArray);
     })
-}, []);
+}, [toggleEdit]);
 
 const displayRecipes = cbrecipes.filter(recipe => {
     return recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -35,7 +36,7 @@ console.log(cbrecipes);
         <div>
             <h1 id="title">Welcome To Your Cookbook!</h1> 
             <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
-            <BookList cbrecipes={displayRecipes} onDeleteRecipe={handleDeleteRecipe}/>
+            <BookList cbrecipes={displayRecipes} onDeleteRecipe={handleDeleteRecipe} setToggleEdit={setToggleEdit}/>
         </div>
     )
 }
