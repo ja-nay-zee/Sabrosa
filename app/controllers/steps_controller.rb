@@ -14,9 +14,14 @@ class StepsController < ApplicationController
     end
 
     def create
-        @step = Step.create(steps_params)
-        render json: @step, status: 200
+        # @step = Step.create(steps_params)
+        # render json: @step, status: 200
+        byebug
     end
+
+    #how to get the data ... json appears
+    #params.map(step => Step.create(step)) => send back to server
+    #render json: steps
 
     def destroy
         @step = Step.find(params[:id])
@@ -35,7 +40,7 @@ class StepsController < ApplicationController
 
     private
 
-    def steps_params
-        params.permit(:id, :step_instruction)
-    end
+    # def steps_params
+    #     params.permit(:id, :step_instruction, :recipe_id)
+    # end
 end

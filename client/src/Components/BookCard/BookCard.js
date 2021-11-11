@@ -3,7 +3,8 @@ import "./BookCard.css"
 
 function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
     // console.log(cbrecipe); WORKS
-    const { id, name, dish_description, image_url } = cbrecipe;
+    const { id, name, dish_description, image_url, ingredients, steps } = cbrecipe;
+    // console.log(cbrecipe);
     const [editedRecipe, setEditedRecipe] = useState({name: name, image_url: image_url, dish_description: dish_description});
     const [editButton, setEditButton] = useState(false);
 
@@ -37,10 +38,22 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
     setEditButton(editButton => !editButton)
   }
 
+ 
+    // console.log(cbrecipes);
+    const displayIngredients = ingredients.map(ingredientarray => <li>{ingredientarray.ingredient_name}</li>)
+
+    const displaySteps = steps.map(step => <li>{step.step_instruction}</li>)
+
     return(
         <li className="card">
           <p>Name: {name}</p>
           {/* <p>Ingredients: {date}</p> */}
+          <div>
+            <h3>Ingredients</h3>
+              <ul> {displayIngredients}</ul>
+            <h3>Steps</h3>
+              <ol>{displaySteps}</ol>
+          </div>
           <p>Description: {dish_description}</p>
           {/* <p>Steps: {steps}</p> */}
           <img id ="dreamImgs" src={image_url} />
