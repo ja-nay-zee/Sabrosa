@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import "./BookCard.css"
 
 function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
-    // console.log(cbrecipe); WORKS
     const { id, name, dish_description, image_url, ingredients, steps } = cbrecipe;
-    // console.log(cbrecipe);
-    const [editedRecipe, setEditedRecipe] = useState({name: name, image_url: image_url, dish_description: dish_description});
+    const [editedRecipe, setEditedRecipe] = useState({name: name, image_url: image_url, dish_description: dish_description, step_instruction: steps, ingredient_name:ingredients});
     const [editButton, setEditButton] = useState(false);
 
     function DeleteClick(){
-        // console.log(id); WORKS
         fetch(`/recipes/${id}`, {
           method: "DELETE",
         });
@@ -83,6 +80,7 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
            onChange={handleEdit}
           />
         <button id="editDreamButton" type="submit">Update Recipe</button>
+        <button id="cancelButton" type="button" onClick={() => setEditButton(false)}>Cancel</button>
         </form>
 }
        </li>

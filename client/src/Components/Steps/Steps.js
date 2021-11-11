@@ -10,7 +10,8 @@ function Steps({ recipeData }){
         step[index][name] = value;
         setAddStep(step);
     }
-    console.log(addStep)
+    
+    console.log(addStep);
 
 
     function handleAddStepButton(){

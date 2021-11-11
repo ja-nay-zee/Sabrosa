@@ -14,9 +14,9 @@ class StepsController < ApplicationController
     end
 
     def create
-        # @step = Step.create(steps_params)
-        # render json: @step, status: 200
-        byebug
+        @step = Step.create(steps_params)
+        render json: @step, status: 200
+        # byebug
     end
 
     #how to get the data ... json appears
@@ -40,7 +40,7 @@ class StepsController < ApplicationController
 
     private
 
-    # def steps_params
-    #     params.permit(:id, :step_instruction, :recipe_id)
-    # end
+    def steps_params
+        params.permit(:id, :step_instruction, :recipe_id)
+    end
 end

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../PublishARecipe/PublishRecipe.css";
 import YourCookbook from "../YourCookbook/YourCookbook.js"
 import Steps from "../Steps/Steps";
+import Ingredients from "../Ingredients/Ingredients";
 
 function Publish({ onAddRecipe }){
     const [createRecipe, setCreateRecipe] = useState({name: "", dish_description: "", image_url: "", user_id: 1})
@@ -10,8 +11,6 @@ function Publish({ onAddRecipe }){
     const [toggleStep, setToggleStep] = useState(false);
     const[recipeForm, setRecipeForm] = useState(false);
     const [recipeData, setRecipeData] = useState(null);
-    // const [addStep, setAddStep] = useState([{step_instruction: "", recipe_id: recipeData === null ? null : recipeData.id}])
-    // const [addStep, setAddStep] = useState([{step_instruction: "", recipe_id: null}])
 
 
     function handlePublishRecipe(e){
@@ -27,27 +26,9 @@ function Publish({ onAddRecipe }){
             .then(recipedata => setRecipeData(recipedata))
             setRecipeForm(true)
             setToggleStep(true)
+            setToggleIngredient(true)
     }
 
-
-    // function handleAddStep(e, index){
-    //     const { name, value } = e.target;
-    //     const step = [...addStep];
-    //     step[index][name] = value;
-    //     setAddStep(step);
-    // }
-    // console.log(addStep)
-
-
-    // function handleAddStepButton(){
-    //     setAddStep([...addStep, { step_instruction: "", recipe_id: recipeData === null ? null : recipeData.id}])
-    // }
-
-    // function handleCancelStepButton(index){
-    //     const list = [...addStep];
-    //     list.splice(index, 1);
-    //     setAddStep(list);
-    // }
 
     function handleRecipeSubmit(){
         console.log(createRecipe);
@@ -57,11 +38,6 @@ function Publish({ onAddRecipe }){
         const key = e.target.name
         setCreateRecipe({...createRecipe, [key]: e.target.value})
     }
-
-    // function handleSubmitSteps(e){
-    //     e.preventDefault();
-    //     console.log(addStep);
-    // }
 
 
     return(
@@ -100,6 +76,7 @@ function Publish({ onAddRecipe }){
             </form>
             </div> }
             {recipeData === null ? null : <Steps recipeData={recipeData} />}
+            {recipeData === null ? null : <Ingredients recipeData={recipeData}/>}
             </div>          
     )}
 

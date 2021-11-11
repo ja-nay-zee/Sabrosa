@@ -4,21 +4,19 @@ class RecipesController < ApplicationController
         render json: @recipes, status: 200
     end
 
-    #(GET) INDEX APPEARS ON POSTMAN
-
+    
     def create
+      # byebug
         @recipe = Recipe.create(recipes_params)
         render json: @recipe, status: 200
     end
 
-    #CREATE WORKS (YOU HAVE TO ADD THE ID TO POST)
 
     def destroy
         @recipe = Recipe.find(params[:id])
         @recipe.destroy
     end
 
-    #DELETE WORKS => TO TEST YOU NEED TO DO .../recipes/(id) AND IT WILL DELETE. THEN CHECK INDEX
 
     def show
         recipe = Recipe.find_by(id: params[:id])
@@ -29,7 +27,6 @@ class RecipesController < ApplicationController
         end
     end
 
-    #SHOW APPEARS ON POSTMAN
 
     def update
         recipe = Recipe.find_by(id: params[:id])
@@ -41,7 +38,6 @@ class RecipesController < ApplicationController
         end
     end
 
-    #PATCH APPEARS ON POSTMAN (YOU HAVE TO DO /{id}, GET IT, THEN USE PATCH (JSON, THEN CHECK INDEX AGAIN TO SEE CHANGES)
 
     # def create
     #     recipe = Recipe.new(recipes_params)
@@ -69,12 +65,10 @@ class RecipesController < ApplicationController
     #     end
     # end
 
-    # FOR ITERATING EACH INGREDIENT NAME ^ = HAVE TO TEST ON FRONT-END
-    # !! FIRST TEST STEPS THEN TRY OUT INGREDIENTS !!
-
     private
 
     def recipes_params
-        params.permit(:id, :name, :dish_description, :image_url, :user_id)
+        # params.permit(:id, :name, :dish_description, :image_url, :user_id)
+        params.permit(:id, :name, :dish_description, :image_url, :user_id, step_instruction: [], ingredient_name: [])
     end
 end

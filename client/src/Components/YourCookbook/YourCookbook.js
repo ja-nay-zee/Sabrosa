@@ -22,14 +22,6 @@ const displayRecipes = cbrecipes.filter(recipe => {
     return recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
 })
 
-// function arrays(){
-//     console.log(cbrecipes);
-//     cbrecipes.map(recipe => recipe.ingredients.map(ingredientarray => console.log(ingredientarray.ingredient_name)))
-
-// }
-
-// const test = cbrecipes === undefined ? null : arrays()
-
 function handleDeleteRecipe(id){
     const updatedRecipesArray = cbrecipes.filter((recipe) => recipe.id !== id);
     setCbRecipes(updatedRecipesArray);
@@ -48,4 +40,4 @@ console.log(cbrecipes);
 
 export default Cookbook;
 
-// REMOVE FORM 
+// REMOVE FORM WITH CREATING CANCEL BUTTON
