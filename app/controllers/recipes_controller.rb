@@ -1,12 +1,13 @@
 class RecipesController < ApplicationController
     def index
-        @recipes = Recipe.all
-        render json: @recipes, status: 200
+      # byebug
+      if current_user
+        render json: current_user.recipes, status: 200
+      end
     end
 
     
     def create
-      # byebug
         @recipe = Recipe.create(recipes_params)
         render json: @recipe, status: 200
     end

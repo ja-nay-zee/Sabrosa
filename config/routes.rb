@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :steps
   resources :recipes
-  # resources :recipes, only: [:index, :create, :update, :destroy]
   resources :users
 
-  # get "/hello", to: "application#hello_world"
+  post "/signin", to: "sessions#create"
+  get "/me", to: "users#show"
+  post "/signup", to: "users#create"
+  delete "/signout", to: "sessions#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

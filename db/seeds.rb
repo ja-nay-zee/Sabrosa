@@ -2,9 +2,9 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 
-User.create(first_name:"Yaneizy", last_name:"Castillo", username:"yanyan", email:"yccastillo18@gmail.com", password:"TestingApp21")
+User.create(username:"yanyan", password:"TestingApp21")
 
-User.create(first_name:"Juliana", last_name:"Kenna", username:"julz", email:"Julz369@gmail.com", password:"LuckyElephant")
+User.create(username:"julz", password:"LuckyElephant")
 
 puts "User created! ✅"
 

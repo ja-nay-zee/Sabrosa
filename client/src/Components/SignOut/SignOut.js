@@ -1,10 +1,25 @@
-import React from "react";
-import "./SignOut.css"
+import React from 'react'
 
-function SignOut(){
+function SignOut({ currentUser, setCurrentUser}){
+
+    // function handleSignOut() {
+    //     console.log(currentUser)
+    //     console.log("Logging off...");
+    //     fetch("/signout", {
+    //     method: "DELETE",
+    //     credentials: 'include'
+    //     })
+    //     .then(resp => {
+    //         if(resp.ok){
+    //             setCurrentUser(null)
+    //         }
+    //     })
+    // };
+    
     return(
         <div>
-            <h1 id="title">Aw,goodbye ... come back soon!</h1>
+            <h1>Sign Out Page</h1>
+            {/* <button onClick={handleSignOut}>Sign Out</button> */}
         </div>
     )
 }

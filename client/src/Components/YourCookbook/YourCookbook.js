@@ -18,6 +18,7 @@ useEffect(() => {
     })
 }, [toggleEdit]);
 
+console.log(cbrecipes);
 const displayRecipes = cbrecipes.filter(recipe => {
     return recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
 })
