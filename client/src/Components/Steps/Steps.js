@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function Steps({ recipeData }){
     const [addStep, setAddStep] = useState([{step_instruction: "", recipe_id: recipeData.id}])
-
+    const [stepsData, setStepsData] = useState("")
 
     function handleAddStep(e, index){
         const { name, value } = e.target;
@@ -10,7 +10,7 @@ function Steps({ recipeData }){
         step[index][name] = value;
         setAddStep(step);
     }
-    
+
     console.log(addStep);
 
 
@@ -26,6 +26,7 @@ function Steps({ recipeData }){
 
     function handleSubmitSteps(e){
         e.preventDefault();
+        // console.log(addStep);
         fetch("/steps", {
             method: "POST",
             headers: {
@@ -33,11 +34,11 @@ function Steps({ recipeData }){
             },
             body: JSON.stringify(addStep)
         })
-            // .then(r => r.json())
-            // .then(stepsdata => setRecipeData(stepsdata))
+            .then(r => r.json())
+            .then(stepsDataArray => setStepsData(stepsDataArray))
+            // console.log(stepsData)
     }
-        console.log(addStep);
-
+console.log(stepsData)
 
     return(
         <div>

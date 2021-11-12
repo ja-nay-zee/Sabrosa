@@ -14,14 +14,11 @@ class StepsController < ApplicationController
     end
 
     def create
+      byebug
         @step = Step.create(steps_params)
         render json: @step, status: 200
-        # byebug
     end
 
-    #how to get the data ... json appears
-    #params.map(step => Step.create(step)) => send back to server
-    #render json: steps
 
     def destroy
         @step = Step.find(params[:id])

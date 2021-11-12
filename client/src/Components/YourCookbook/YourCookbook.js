@@ -14,11 +14,9 @@ useEffect(() => {
     .then(r => r.json())
     .then((recipesArray) => {
         setCbRecipes(recipesArray);
-        console.log(recipesArray)
     })
 }, [toggleEdit]);
 
-console.log(cbrecipes);
 const displayRecipes = cbrecipes.filter(recipe => {
     return recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
 })
@@ -29,7 +27,6 @@ function handleDeleteRecipe(id){
 }
 
 
-console.log(cbrecipes);
     return(
         <div>
             <h1 id="title">Welcome To Your Cookbook!</h1> 

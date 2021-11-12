@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Ingredients({ recipeData }){
     const [addIngredient, setAddIngredient] = useState([{ingredient_name: "", recipe_id: recipeData.id}])
-
+    const [ingredientsData, setIngredientsData] = useState("")
 
     function handleAddIngredient(e, index){
         const { name, value } = e.target;
@@ -33,10 +33,10 @@ function Ingredients({ recipeData }){
             },
             body: JSON.stringify(addIngredient)
         })
-            // .then(r => r.json())
-            // .then(stepsdata => setRecipeData(stepsdata))
+            .then(r => r.json())
+            .then(ingredientsData => setIngredientsData(ingredientsData))
     }
-        console.log(addIngredient);
+        console.log(ingredientsData);
 
 
     return(
