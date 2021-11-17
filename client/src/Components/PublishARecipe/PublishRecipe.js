@@ -40,24 +40,27 @@ function Publish({ onAddRecipe }){
 
 
     return(
-        <div>             
+        <div id="background">
+        <div className="formWithStepsAndIngredients">
            {recipeData === undefined || recipeData === null ? null : <div>
                 <h3>Name of Recipe: {recipeData.name}</h3>
                 <h3>Description: {recipeData.dish_description}</h3>
-                <img src={recipeData.image_url} />
+                <img id="imgWithStepsAndIngredients" src={recipeData.image_url} />
             </div>}
        {recipeForm === true ? null : 
         <div className="formPublishRecipe">
             <h2>Yum! Fill out the form below to publish a recipe into your cookbook!</h2>
             <form onSubmit={handlePublishRecipe}>
                 <input 
+                    className="recipeNameBox"
                     type="text" 
                     name="name" 
                     placeholder="Name of Recipe" 
                     value={createRecipe.name} 
                     onChange={handleRecipeChange}
                 />
-                <input 
+                <textarea 
+                    className="descriptionBox"
                     type="text" 
                     name="dish_description" 
                     placeholder="Description of Dish" 
@@ -65,18 +68,20 @@ function Publish({ onAddRecipe }){
                     onChange={handleRecipeChange}
                 />
                 <input 
+                    className="imageBox"
                     type="text" 
                     name="image_url" 
                     placeholder="Image URL" 
                     value={createRecipe.image_url} 
                     onChange={handleRecipeChange}
                 />
-                <button type="submit" onClick={handlePublishRecipe}>Next</button>
+                <button id="nextButton" type="submit" onClick={handlePublishRecipe}>Next</button>
             </form>
             </div> }
             {recipeData === null ? null : <Steps recipeData={recipeData} />}
             {recipeData === null ? null : <Ingredients recipeData={recipeData}/>}
-            </div>          
+            </div>  
+                   </div> 
     )}
 
 export default Publish;

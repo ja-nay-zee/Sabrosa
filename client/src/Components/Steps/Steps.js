@@ -11,7 +11,7 @@ function Steps({ recipeData }){
         setSteps(step);
     }
 
-    console.log(Steps);
+    // console.log(Steps);
 
 
     function handleStepsButton(){
@@ -26,7 +26,6 @@ function Steps({ recipeData }){
 
     function handleSubmitSteps(e){
         e.preventDefault();
-        // console.log(Steps);
         fetch("/steps", {
             method: "POST",
             headers: {
@@ -41,7 +40,6 @@ function Steps({ recipeData }){
 
     function handleSubmitSteps(e){
         e.preventDefault();
-        // console.log(Steps);
         fetch(`/recipes/${recipeData.id}`, {
             method: "PATCH",
             headers: {
@@ -51,8 +49,8 @@ function Steps({ recipeData }){
         })
         .then(resp => resp.json())
         .then(console.log)
+        alert("Your steps were added to your recipe!")
     }
-// console.log(stepsData)
 
     return(
         <div>
@@ -61,6 +59,7 @@ function Steps({ recipeData }){
                 return(
                     <div key={i} id="addingstepform">
                         <input 
+                            className="stepsBox"
                             type="text" 
                             name="step_instruction" 
                             placeholder="Step Instruction" 
@@ -68,7 +67,7 @@ function Steps({ recipeData }){
                             onChange={e => handleSteps(e, i)}
                         />
                         {Steps.length -1 === i && <input 
-                            id="StepsButton"
+                            id="addStepsButton"
                             type="button" 
                             value="+"
                             onClick={handleStepsButton}
@@ -81,7 +80,7 @@ function Steps({ recipeData }){
                         />} 
                      </div>  
                 )} )}
-                    <button type="submit">Submit Steps</button>
+                    <button id="submitStepsButton" type="submit">Submit Steps</button>
                 </form>
             </div>
     )

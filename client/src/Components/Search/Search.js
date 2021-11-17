@@ -6,8 +6,8 @@ function Search({ searchTerm, onSearchChange }){
         <div className="searchbar">
             <label htmlFor="search">Search Recipes:</label>
             <input
+                className="searchBox"
                 type="text"
-                id="search"
                 placeholder="Type a recipe name to search..."
                 value={searchTerm}
                 onChange={(e) => onSearchChange(e.target.value)}

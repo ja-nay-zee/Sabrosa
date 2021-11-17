@@ -41,7 +41,6 @@ function Signup({ setCurrentUser }){
   
     return(
       <div>
-        {/* <h2>Sabrosa</h2> */}
             <form id="signUpForm" onSubmit={handleSubmitSignUp}>
               <h1 id="createAccount">Create An Account!</h1>
               <input

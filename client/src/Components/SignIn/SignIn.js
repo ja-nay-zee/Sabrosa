@@ -36,7 +36,7 @@ function SignIn({setCurrentUser}){
         };
 
     return(
-        <div>
+        <div id="backgroundPic">
             <form id="signInForm" onSubmit={handleSubmitSignIn}>
                 <h1>Welcome to Sabrosa</h1>    
                 <input
@@ -64,6 +64,7 @@ function SignIn({setCurrentUser}){
                 <hr/>
                 <p id="createAccount">Need to create a new account?</p>
                 <Link to="/signup"><em id="signUp"> Sign Up </em></Link>
+                <p id="rightsReserved">© 2021 Sabrosa. All Rights Reserved.</p>
             </form>
             <div id="auth__form-container_fields-account">
             {/* <p id="aboveSignUp">Need to create a new account?</p> */}

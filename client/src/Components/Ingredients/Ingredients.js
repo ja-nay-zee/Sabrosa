@@ -36,7 +36,6 @@ function Ingredients({ recipeData }){
             .then(r => r.json())
             .then(console.log)
     }
-        console.log(ingredientsData);
 
         function handleSubmitSteps(e){
             e.preventDefault();
@@ -49,6 +48,7 @@ function Ingredients({ recipeData }){
             })
                 .then(r => r.json())
                 .then(console.log)
+                alert("Your ingredients were added to your recipe!")
         }
 
     return(
@@ -58,6 +58,7 @@ function Ingredients({ recipeData }){
                 return(
                     <div key={i} id="addingIngredientform">
                         <input 
+                            className="ingredientBox"
                             type="text" 
                             name="ingredient_name" 
                             placeholder="Ingredient Name" 
@@ -78,7 +79,7 @@ function Ingredients({ recipeData }){
                         />} 
                      </div>  
                 )} )}
-                    <button type="submit">Submit Ingredients</button>
+                    <button id="submitIngredientsButton" type="submit">Submit Ingredients</button>
                 </form>
             </div>
     )

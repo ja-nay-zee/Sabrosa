@@ -24,6 +24,7 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
       })
       console.log({ editedRecipe })
       setToggleEdit(toggleEdit => !toggleEdit)
+      alert("Your recipe was updated!")
     }
 
     function handleEdit(e){
@@ -35,30 +36,27 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
     setEditButton(editButton => !editButton)
   }
 
- 
-    // console.log(cbrecipes);
-    const displayIngredients = ingredients.map(ingredientarray => <li>{ingredientarray.ingredient_name}</li>)
+     const displayIngredients = ingredients.map(ingredientarray => <li>{ingredientarray.ingredient_name}</li>)
 
     const displaySteps = steps.map(step => <li>{step.step_instruction}</li>)
 
     return(
-        <li className="card">
-          <p>Name: {name}</p>
-          {/* <p>Ingredients: {date}</p> */}
-          <div>
-            <h3>Ingredients</h3>
+        <div className="recipeCardDetails">
+          <h1 className="recipe-name">Name: {name}</h1>
+          <img id="recipeImgs" src={image_url} />
+          <div className="cardDetails">
+            <h3>Ingredients:</h3>
               <ul> {displayIngredients}</ul>
-            <h3>Steps</h3>
-              <ol>{displaySteps}</ol>
-          </div>
+            <h3>Steps:</h3>
+              <ol>{displaySteps}</ol>          
           <p>Description: {dish_description}</p>
-          {/* <p>Steps: {steps}</p> */}
-          <img id ="dreamImgs" src={image_url} />
         <button id="deleteButton" onClick={DeleteClick}> Delete </button>
         <button id="editButton" onClick={handleEditForm}> Edit Button </button>
+        </div>
         {editButton === false ? null : <form id="updateform" onSubmit={handleEditedRecipeForm}>
-          <h2> Edit This Recipe</h2>
+          <h2> Edit This Recipe: {editedRecipe.name}</h2>
           <input
+           className="editNameBox"
            type="text"
            name="name"
            placeholder="Edit Recipe Name"
@@ -66,13 +64,15 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
            onChange={handleEdit}
           />
           <input
+           className="editImageBox"
            type="text"
            name="image_url"
            placeholder="Edit Image URL"
            value={editedRecipe.image_url}
            onChange={handleEdit}
           />
-          <input
+          <textarea
+           className="editDescriptionBox"
            type="text"
            name="dish_description"
            placeholder="Edit Dish Description"
@@ -83,7 +83,7 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
         <button id="cancelButton" type="button" onClick={() => setEditButton(false)}>Cancel</button>
         </form>
 }
-       </li>
+       </div>
 
     )
 }

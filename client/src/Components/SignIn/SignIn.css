@@ -4,7 +4,7 @@
     padding: 40px;
     border-radius: 5px;
     width: 480px;
-    height: 330px;
+    height: 350px;
     display: block;
     text-align: center;
     margin-left: auto;
@@ -71,4 +71,12 @@ hr {
 
 #createAccount{
     font-size: 25px;
+    font-style: italic;
+}
+
+#backgroundPic{
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/112/644/non_2x/free-kitchen-pattern-vector.png");
+    position: fixed;
+    width: 1600px;
+    height: 1000px;
 }

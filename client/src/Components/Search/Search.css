@@ -1,9 +1,19 @@
-.searchbar {
+/* .searchbar {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  } */
+
+  #search {
     padding: 1rem;
     display: flex;
     flex-direction: column;
   }
+
   
+  ::placeholder{
+    color: black;
+  }
   /* label {
     font-weight: bold;
     display: block;
