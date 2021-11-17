@@ -14,7 +14,7 @@ class StepsController < ApplicationController
     end
 
     def create
-      byebug
+      # byebug
         @step = Step.create(steps_params)
         render json: @step, status: 200
     end

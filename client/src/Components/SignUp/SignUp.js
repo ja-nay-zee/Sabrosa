@@ -41,9 +41,11 @@ function Signup({ setCurrentUser }){
   
     return(
       <div>
-        <h2>Sabrosa</h2>
-            <form onSubmit={handleSubmitSignUp}>
+        {/* <h2>Sabrosa</h2> */}
+            <form id="signUpForm" onSubmit={handleSubmitSignUp}>
+              <h1 id="createAccount">Create An Account!</h1>
               <input
+                className="username"
                 placeholder="Username"
                 name="username"
                 type="text"
@@ -52,6 +54,7 @@ function Signup({ setCurrentUser }){
                 required
               />
               <input
+                className="password"
                 placeholder="Password"
                 name="password"
                 type={passwordShown ? "text" : "password"}
@@ -61,6 +64,7 @@ function Signup({ setCurrentUser }){
               />
               <i onClick={togglePasswordVisiblity}>view</i>
               <input
+                className="passwordConfirmation"
                 placeholder="Password Confirmation"
                 name="passwordConfirmation"
                 type={confPasswordShown ? "text" : "password"}
@@ -70,12 +74,15 @@ function Signup({ setCurrentUser }){
               />
               <i onClick={toggleConfPasswordVisiblity}>view</i>
               <div className="auth__form-container_fields-content_button">
-                <button type="submit">Sign Up</button>
+                <button id="signUpButton" type="submit">Sign Up</button>
+                <hr />
+                <p id="alreadyMember">Already a Sabrosa member?</p>
+                <Link to="/signin"><em> Sign In </em></Link>
               </div>
             </form>
             <div className="auth__form-container_fields-account">
-              <p>Already have an account?</p>
-              <Link to="/signin"><em> Sign In </em></Link>
+              {/* <p>Already have an account?</p>
+              <Link to="/signin"><em> Sign In </em></Link> */}
             </div>
       </div>
     );

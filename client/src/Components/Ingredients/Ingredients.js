@@ -34,10 +34,22 @@ function Ingredients({ recipeData }){
             body: JSON.stringify(addIngredient)
         })
             .then(r => r.json())
-            .then(ingredientsData => setIngredientsData(ingredientsData))
+            .then(console.log)
     }
         console.log(ingredientsData);
 
+        function handleSubmitSteps(e){
+            e.preventDefault();
+            fetch(`/recipes/${recipeData.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({recipe_ingredients_attributes: addIngredient})
+            })
+                .then(r => r.json())
+                .then(console.log)
+        }
 
     return(
         <div>

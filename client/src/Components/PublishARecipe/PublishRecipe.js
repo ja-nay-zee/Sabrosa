@@ -6,7 +6,6 @@ import Ingredients from "../Ingredients/Ingredients";
 
 function Publish({ onAddRecipe }){
     const [createRecipe, setCreateRecipe] = useState({name: "", dish_description: "", image_url: "", user_id: 1})
-    // const [addStep, setAddStep] = useState([{step_instruction: "", recipe_id: 1}])
     const [toggleIngredient, setToggleIngredient] = useState(false);
     const [toggleStep, setToggleStep] = useState(false);
     const[recipeForm, setRecipeForm] = useState(false);
@@ -49,7 +48,7 @@ function Publish({ onAddRecipe }){
             </div>}
        {recipeForm === true ? null : 
         <div className="formPublishRecipe">
-            <h2>Yum! Fill out the form below to Publish a recipe into your cookbook!</h2>
+            <h2>Yum! Fill out the form below to publish a recipe into your cookbook!</h2>
             <form onSubmit={handlePublishRecipe}>
                 <input 
                     type="text" 

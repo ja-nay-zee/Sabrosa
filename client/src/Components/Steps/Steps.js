@@ -1,65 +1,79 @@
 import React, {useState} from "react";
 
 function Steps({ recipeData }){
-    const [addStep, setAddStep] = useState([{step_instruction: "", recipe_id: recipeData.id}])
+    const [steps, setSteps] = useState([{step_instruction: "", recipe_id: recipeData.id}])
     const [stepsData, setStepsData] = useState("")
 
-    function handleAddStep(e, index){
+    function handleSteps(e, index){
         const { name, value } = e.target;
-        const step = [...addStep];
+        const step = [...steps];
         step[index][name] = value;
-        setAddStep(step);
+        setSteps(step);
     }
 
-    console.log(addStep);
+    console.log(Steps);
 
 
-    function handleAddStepButton(){
-        setAddStep([...addStep, { step_instruction: "", recipe_id: recipeData === null ? null : recipeData.id}])
+    function handleStepsButton(){
+        setSteps([...steps, { step_instruction: "", recipe_id: recipeData === null ? null : recipeData.id}])
     }
 
     function handleCancelStepButton(index){
-        const list = [...addStep];
+        const list = [...steps];
         list.splice(index, 1);
-        setAddStep(list);
+        setSteps(list);
     }
 
     function handleSubmitSteps(e){
         e.preventDefault();
-        // console.log(addStep);
+        // console.log(Steps);
         fetch("/steps", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(addStep)
+            body: JSON.stringify(steps)
         })
             .then(r => r.json())
             .then(stepsDataArray => setStepsData(stepsDataArray))
-            // console.log(stepsData)
+            console.log(stepsData)
     }
-console.log(stepsData)
+
+    function handleSubmitSteps(e){
+        e.preventDefault();
+        // console.log(Steps);
+        fetch(`/recipes/${recipeData.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({steps_attributes: steps})
+        })
+        .then(resp => resp.json())
+        .then(console.log)
+    }
+// console.log(stepsData)
 
     return(
         <div>
             <form onSubmit={handleSubmitSteps}>
-             {addStep.map((item,i) => {
+             {steps.map((item,i) => {
                 return(
                     <div key={i} id="addingstepform">
                         <input 
                             type="text" 
                             name="step_instruction" 
                             placeholder="Step Instruction" 
-                            value={item.addStep} 
-                            onChange={e => handleAddStep(e, i)}
+                            value={item.steps} 
+                            onChange={e => handleSteps(e, i)}
                         />
-                        {addStep.length -1 === i && <input 
-                            id="addStepButton"
+                        {Steps.length -1 === i && <input 
+                            id="StepsButton"
                             type="button" 
                             value="+"
-                            onClick={handleAddStepButton}
+                            onClick={handleStepsButton}
                         />}
-                        {addStep.length !== 1 && <input 
+                        {Steps.length !== 1 && <input 
                             id="cancelStepButton"
                             type="button" 
                             value="Cancel"

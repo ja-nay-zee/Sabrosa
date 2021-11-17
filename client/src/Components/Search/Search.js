@@ -10,7 +10,6 @@ function Search({ searchTerm, onSearchChange }){
                 id="search"
                 placeholder="Type a recipe name to search..."
                 value={searchTerm}
-                // onChange={(e) => console.log("Searching for...")}
                 onChange={(e) => onSearchChange(e.target.value)}
             />
         </div>
