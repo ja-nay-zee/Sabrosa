@@ -1,3 +1,12 @@
 #title{
     text-align: center;
 }
+
+#cookbookBackground{
+    background-image: url("https://i.imgur.com/ByN5emh.png");
+    background-repeat: no-repeat;
+    background-size: 1320px 780px;
+    margin-left: 120px;
+    /* height: 1300px;  */
+
+}

@@ -82,11 +82,18 @@
     border-radius: 12px;
 }
 
+/* #recipeCardContainer{
+  overflow: scroll;
+} */
+
 .recipeCardDetails{
   max-width: 300px;
   margin-top: 20vh;
   border: 2px solid rgb(161, 158, 158);
   border-radius: 5px;
+  padding-right: 50px;
+  margin-left: 150px;
+  overflow: scroll;
 }
 
 .recipeCardDetails:hover{

@@ -41,6 +41,7 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
     const displaySteps = steps.map(step => <li>{step.step_instruction}</li>)
 
     return(
+      <div id="recipeCardContainer">
         <div className="recipeCardDetails">
           <h1 className="recipe-name">Name: {name}</h1>
           <img id="recipeImgs" src={image_url} />
@@ -83,6 +84,7 @@ function BookCard({ cbrecipe, onDeleteRecipe, setToggleEdit }){
         <button id="cancelButton" type="button" onClick={() => setEditButton(false)}>Cancel</button>
         </form>
 }
+       </div>
        </div>
 
     )

@@ -7,33 +7,36 @@
 
 #background{
   background-image: url("https://i.imgur.com/ByN5emh.png");
+  background-size: 1270px 780px;
   position: fixed;
-  width: 1200px;
-  height: 1000px;
+  margin-left: 120px;
+  width: 1275px;
+  height: 1100px; 
   background-repeat: no-repeat;
 }
 
   .formPublishRecipe{
-    
-    background-color: #c39e7c;
+    background-color: #ffad66;
+    /* background: linear-gradient(#e6ba97, #c2956c); */
     padding: 40px;
     border-radius: 5px;
-    width: 480px;
+    width: 430px;
     height: 330px;
     display: block;
     text-align: center;
-    margin-left: 60%;
+    margin-left: 40%;
+    overflow: hidden;
     /* margin-right: auto; */
     /* margin-top: 13%; */
-    box-shadow: 10px 10px 5px grey;
+    /* box-shadow: 10px 10px 5px grey; */
   }
   
   .recipeNameBox{
     background-color: #6d3b12;
     border-radius: 10px;
     color: white;
-    width: 70%;
-    height: 10%;
+    width: 80%;
+    height: 20%;
 }
 
 .descriptionBox{
@@ -41,7 +44,7 @@
   border-radius: 10px;
   color: white;
   width: 70%;
-  height: 10%;
+  height: 40%;
 }
 
 .imageBox{
@@ -60,17 +63,21 @@
 }
 
 .formWithStepsAndIngredients{
-  background-color: #c39e7c;
+  background: linear-gradient(#e6ba97, #c2956c);
+  /* background-image: url("https://i.imgur.com/NJugMFp.png"); */
+  overflow: scroll;
+  /* overflow-x: hidden; */
+  background-color: #f0dbc8;
   padding: 40px;
   border-radius: 5px;
-  width: 480px;
+  width: 400px;
   height: 400px;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 13%;
-  box-shadow: 10px 10px 5px grey;
+  margin-left: 52%;
+  /* margin-right: auto;
+  margin-top: 6%;
+  box-shadow: 5px 5px 5px grey; */
 }
 
 #imgWithStepsAndIngredients{
@@ -221,4 +228,17 @@ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 #submitIngredientsButton:hover{
   color: #c39e7c;
+}
+
+/* #tapepic{
+    background-image: url("https://i.imgur.com/NJugMFp.png");
+    position: flex;
+   padding-top: 20%;
+   background-size: 100px;
+   background-repeat: no-repeat;
+} */
+
+h2{
+  font-size: 30px;
+  padding-top: 20px;
 }

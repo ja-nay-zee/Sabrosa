@@ -41,6 +41,9 @@ function Publish({ onAddRecipe }){
 
     return(
         <div id="background">
+            <div id="tapepic">
+                {/* <h2 id="headerText">Yum! Fill out the form to add a recipe to your cookbook!</h2> */}
+            </div> 
         <div className="formWithStepsAndIngredients">
            {recipeData === undefined || recipeData === null ? null : <div>
                 <h3>Name of Recipe: {recipeData.name}</h3>
@@ -80,8 +83,8 @@ function Publish({ onAddRecipe }){
             </div> }
             {recipeData === null ? null : <Steps recipeData={recipeData} />}
             {recipeData === null ? null : <Ingredients recipeData={recipeData}/>}
-            </div>  
-                   </div> 
+            </div>
+        </div>
     )}
 
 export default Publish;

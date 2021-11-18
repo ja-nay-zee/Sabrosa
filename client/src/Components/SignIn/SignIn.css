@@ -76,6 +76,7 @@ hr {
 
 #backgroundPic{
     background-image: url("https://static.vecteezy.com/system/resources/previews/000/112/644/non_2x/free-kitchen-pattern-vector.png");
+    /* background-repeat: no-repeat; */
     position: fixed;
     width: 1600px;
     height: 1000px;

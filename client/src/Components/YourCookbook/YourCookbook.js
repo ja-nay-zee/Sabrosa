@@ -28,7 +28,7 @@ function handleDeleteRecipe(id){
 
 
     return(
-        <div>
+        <div id="cookbookBackground">
             <h1 id="title">Welcome To Your Cookbook!</h1> 
             <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
             <BookList cbrecipes={displayRecipes} onDeleteRecipe={handleDeleteRecipe} setToggleEdit={setToggleEdit}/>
