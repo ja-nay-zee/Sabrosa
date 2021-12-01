@@ -26,7 +26,7 @@ input {
     padding: 40px;
     border-radius: 5px;
     width: 480px;
-    height: 380px;
+    height: 410px;
     display: block;
     text-align: center;
     margin-left: auto;
@@ -37,6 +37,8 @@ input {
 
 #createAccount{
     /* margin-bottom: 15%; */
+    /* font-size: 40px; */
+    /* padding-bottom: 40px; */
 }
 
 .username{
@@ -106,3 +108,11 @@ hr {
     font-style: italic;
 }
 
+#signUpBackground{
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/112/644/non_2x/free-kitchen-pattern-vector.png");
+    /* background-repeat: no-repeat; */
+    position: fixed;
+    width: 1600px;
+    height: 1000px;
+
+}

@@ -40,7 +40,7 @@ function Signup({ setCurrentUser }){
     };
   
     return(
-      <div>
+      <div id="signUpBackground">
             <form id="signUpForm" onSubmit={handleSubmitSignUp}>
               <h1 id="createAccount">Create An Account!</h1>
               <input
@@ -77,6 +77,7 @@ function Signup({ setCurrentUser }){
                 <hr />
                 <p id="alreadyMember">Already a Sabrosa member?</p>
                 <Link to="/signin"><em> Sign In </em></Link>
+                <p id="rightsReserved">© 2021 Sabrosa. All Rights Reserved.</p>
               </div>
             </form>
             <div className="auth__form-container_fields-account">
